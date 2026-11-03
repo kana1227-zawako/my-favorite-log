@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #fbf8f3;
+  --color-sand-50: #f7f1e8;
+  --color-sand-100: #efe5d6;
+  --color-sand-200: #e3d5bf;
+  --color-sand-300: #cfbb9b;
+  --color-sand-500: #a88b62;
+  --color-sand-700: #7a6243;
+  --color-ink: #3b342c;
+  --color-ink-soft: #6f6558;
+  --color-star: #d4a24c;
+  --font-sans: var(--font-geist-sans), "Hiragino Sans", "Hiragino Kaku Gothic ProN",
+    "Noto Sans JP", "Yu Gothic UI", "Meiryo", sans-serif;
+}
+
+@layer components {
+  .input {
+    @apply w-full rounded-lg border border-sand-200 bg-white px-3 py-2 text-sm text-ink placeholder:text-sand-300 transition outline-none focus:border-sand-500 focus:ring-2 focus:ring-sand-100 disabled:cursor-not-allowed disabled:bg-sand-50 disabled:text-ink-soft;
+  }
+  .input[aria-invalid="true"] {
+    @apply border-red-300 focus:ring-red-100;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-1.5 rounded-full bg-ink px-5 py-2 text-sm font-medium text-cream transition hover:bg-sand-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sand-500 disabled:cursor-not-allowed disabled:bg-sand-300;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-1.5 rounded-full border border-sand-200 bg-white px-4 py-2 text-sm text-ink transition hover:bg-sand-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sand-500 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-danger {
+    @apply inline-flex items-center justify-center gap-1.5 rounded-full bg-red-700 px-5 py-2 text-sm font-medium text-white transition hover:bg-red-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-400 disabled:cursor-not-allowed disabled:bg-red-300;
+  }
+  .field-error {
+    @apply mt-1 text-xs text-red-700;
+  }
+}
+
+body {
+  background: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
